@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://thdi4aef380g"]
+
+[ext_resource type="Script" path="res://scripts/user_interface.gd" id="1_b60ps"]
+
+[node name="GameOver" type="CanvasLayer"]
+script = ExtResource("1_b60ps")
+
+[node name="RestartButton" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "RESTART"
+
+[connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]

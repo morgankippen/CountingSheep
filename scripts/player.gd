@@ -1,28 +1,37 @@
 extends CharacterBody2D
 
+const GRAVITY : int = 1000
+const MAX_VEL : int = 600
+const FLAP_SPEED : int = -500
+var flying : bool = false
+var falling : bool = false
+const START_POS = Vector2(100, 400) 
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	reset()
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-
+func reset():
+	falling = false
+	flying = false
+	position = START_POS
+	set_rotation(0)
 
 func _physics_process(delta):
-	# Add the gravity.
-	if not is_on_floor():
-		velocity.y += gravity * delta
-
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction = Input.get_axis("ui_left", "ui_right")
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-
-	move_and_slide()
+	#if flying or falling:
+	velocity.y += GRAVITY * delta
+	#terminal velocity
+	if velocity.y > MAX_VEL:
+		velocity.y = MAX_VEL
+	if flying:
+		set_rotation(deg_to_rad(velocity.y * 0.05))
+		#$AnimatedSprite2D.play()
+	elif falling:
+		set_rotation(PI/2)
+		#$AnimatedSprite2D.stop()
+	move_and_collide(velocity * delta)
+	#else:
+		#$AnimatedSprite2D.stop()
+		
+func flap():
+	velocity.y = FLAP_SPEED
