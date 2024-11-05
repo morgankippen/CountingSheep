@@ -15,6 +15,8 @@ const PIPE_RANGE : int = 200
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	SignalBus.hit.connect(_on_hit)
+	SignalBus.scored.connect(_on_score)
 	screen_size = get_window().size
 	ground_height = $Ground.get_node("Sprite2D").texture.get_height()
 	new_game()
@@ -72,12 +74,10 @@ func generate_pipes():
 	var pipe = pipe_scene.instantiate()
 	pipe.position.x = screen_size.x + PIPE_DELAY
 	pipe.position.y = (screen_size.y - ground_height) / 2  + randi_range(-PIPE_RANGE, PIPE_RANGE)
-	pipe.hit.connect(bird_hit)
-	pipe.scored.connect(scored)
 	add_child(pipe)
 	pipes.append(pipe)
 	
-func scored():
+func _on_score():
 	score += 1
 	$ScoreLabel.text = "SCORE: " + str(score)
 
@@ -93,12 +93,8 @@ func stop_game():
 	game_running = false
 	game_over = true
 	
-func bird_hit():
+func _on_hit():
 	$Bird.falling = true
-	stop_game()
-
-func _on_ground_hit():
-	$Bird.falling = false
 	stop_game()
 
 func _on_game_over_restart():
