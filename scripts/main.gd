@@ -1,5 +1,6 @@
 extends Node
 
+@onready var pointLabel = $GUI/score_UI/points
 @export var pipe_scene : PackedScene
 
 var game_running : bool
@@ -17,6 +18,7 @@ const PIPE_RANGE : int = 200
 func _ready():
 	SignalBus.hit.connect(_on_hit)
 	SignalBus.scored.connect(_on_score)
+	SignalBus.restart.connect(_on_restart)
 	screen_size = get_window().size
 	ground_height = $Ground.get_node("Sprite2D").texture.get_height()
 	new_game()
@@ -27,8 +29,7 @@ func new_game():
 	game_over = false
 	score = 0
 	scroll = 0
-	$ScoreLabel.text = "SCORE: " + str(score)
-	$GameOver.hide()
+	pointLabel.text = "Score: " + str(score)
 	get_tree().call_group("pipes", "queue_free")
 	pipes.clear()
 	#generate starting pipes
@@ -79,7 +80,7 @@ func generate_pipes():
 	
 func _on_score():
 	score += 1
-	$ScoreLabel.text = "SCORE: " + str(score)
+	pointLabel.text = "Score: " + str(score)
 
 func check_top():
 	if $Bird.position.y < 0:
@@ -88,7 +89,6 @@ func check_top():
 
 func stop_game():
 	$PipeTimer.stop()
-	$GameOver.show()
 	$Bird.flying = false
 	game_running = false
 	game_over = true
@@ -97,5 +97,6 @@ func _on_hit():
 	$Bird.falling = true
 	stop_game()
 
-func _on_game_over_restart():
+func _on_restart():
+	print("restsrt?")
 	new_game()
