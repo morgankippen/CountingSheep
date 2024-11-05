@@ -22,4 +22,8 @@ SignalBus="*res://scripts/signal_bus.gd"
 [display]
 
 window/size/viewport_width=750
-window/size/viewport_height=936
+window/size/viewport_height=1000
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

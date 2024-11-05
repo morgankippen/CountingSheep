@@ -1,6 +1,6 @@
 extends Node
 
-@onready var pointLabel = $GUI/score_UI/points
+@onready var pointLabel = $GUI/score_UI/score/points
 @export var pipe_scene : PackedScene
 
 var game_running : bool
@@ -29,7 +29,7 @@ func new_game():
 	game_over = false
 	score = 0
 	scroll = 0
-	pointLabel.text = "Score: " + str(score)
+	pointLabel.text = str(score)
 	get_tree().call_group("pipes", "queue_free")
 	pipes.clear()
 	#generate starting pipes
@@ -80,7 +80,7 @@ func generate_pipes():
 	
 func _on_score():
 	score += 1
-	pointLabel.text = "Score: " + str(score)
+	pointLabel.text = str(score)
 
 func check_top():
 	if $Bird.position.y < 0:
