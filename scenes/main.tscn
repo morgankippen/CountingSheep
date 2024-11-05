@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_q23vj"]
 [ext_resource type="PackedScene" uid="uid://bflvjj2oei7w4" path="res://scenes/pipes.tscn" id="2_f772c"]
 [ext_resource type="PackedScene" uid="uid://kl38slt1elop" path="res://scenes/player.tscn" id="2_h64mq"]
-[ext_resource type="Texture2D" uid="uid://h8nsajgjxii3" path="res://assets/IMG_0759.png" id="3_df55r"]
+[ext_resource type="Texture2D" uid="uid://kiwyfbck0lh0" path="res://assets/night_bg.png" id="3_pl68a"]
 [ext_resource type="PackedScene" uid="uid://do3dlki2b0pmw" path="res://scenes/ground.tscn" id="4_kng4b"]
 [ext_resource type="PackedScene" uid="uid://thdi4aef380g" path="res://scenes/user_interface.tscn" id="5_1socj"]
 
@@ -13,11 +13,10 @@ pipe_scene = ExtResource("2_f772c")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(376, 496)
-texture = ExtResource("3_df55r")
+texture = ExtResource("3_pl68a")
 
 [node name="Ground" parent="." instance=ExtResource("4_kng4b")]
 z_index = 1
-position = Vector2(0, 80)
 
 [node name="Bird" parent="." instance=ExtResource("2_h64mq")]
 z_index = 1
