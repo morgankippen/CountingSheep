@@ -19,7 +19,7 @@ texture = ExtResource("3_pl68a")
 [node name="Ground" parent="." instance=ExtResource("4_kng4b")]
 z_index = 1
 
-[node name="Bird" parent="." instance=ExtResource("2_h64mq")]
+[node name="Sheep" parent="." instance=ExtResource("2_h64mq")]
 z_index = 1
 position = Vector2(84, 389)
 

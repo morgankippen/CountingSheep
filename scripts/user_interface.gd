@@ -10,6 +10,7 @@ func _game_over():
 
 func _on_restart_pressed():
 	SoundManager.play_sound("play")
+	await get_tree().create_timer(0.5).timeout
 	$game_over.set_visible(false)
 	SignalBus.restart.emit()
 

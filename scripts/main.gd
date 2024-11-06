@@ -34,7 +34,7 @@ func new_game():
 	pipes.clear()
 	#generate starting pipes
 	generate_pipes()
-	$Bird.reset()
+	$Sheep.reset()
 	
 func _input(event):
 	if game_over == false:
@@ -43,15 +43,15 @@ func _input(event):
 				if game_running == false:
 					start_game()
 				else:
-					if $Bird.flying:
+					if $Sheep.flying:
 						SoundManager.play_sound("jump")
-						$Bird.flap()
+						$Sheep.flap()
 						check_top()
 
 func start_game():
 	game_running = true
-	$Bird.flying = true
-	$Bird.flap()
+	$Sheep.flying = true
+	$Sheep.flap()
 	#start pipe timer
 	$PipeTimer.start()
 
@@ -85,18 +85,18 @@ func _on_score():
 	#SoundManager.play_sound("score")
 
 func check_top():
-	if $Bird.position.y < 0:
-		$Bird.falling = true
+	if $Sheep.position.y < 0:
+		$Sheep.falling = true
 		stop_game()
 
 func stop_game():
 	$PipeTimer.stop()
-	$Bird.flying = false
+	$Sheep.flying = false
 	game_running = false
 	game_over = true
 	
 func _on_hit():
-	$Bird.falling = true
+	$Sheep.falling = true
 	stop_game()
 
 func _on_restart():
