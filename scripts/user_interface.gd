@@ -9,6 +9,7 @@ func _game_over():
 	$game_over.set_visible(true)
 
 func _on_restart_pressed():
+	SoundManager.play_sound("play")
 	$game_over.set_visible(false)
 	SignalBus.restart.emit()
 

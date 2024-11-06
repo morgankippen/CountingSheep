@@ -44,6 +44,7 @@ func _input(event):
 					start_game()
 				else:
 					if $Bird.flying:
+						SoundManager.play_sound("jump")
 						$Bird.flap()
 						check_top()
 
@@ -81,6 +82,7 @@ func generate_pipes():
 func _on_score():
 	score += 1
 	pointLabel.text = str(score)
+	#SoundManager.play_sound("score")
 
 func check_top():
 	if $Bird.position.y < 0:

@@ -1,13 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bflvjj2oei7w4"]
+[gd_scene load_steps=5 format=3 uid="uid://bflvjj2oei7w4"]
 
 [ext_resource type="Script" path="res://scripts/pipes.gd" id="1_irciu"]
-[ext_resource type="Texture2D" uid="uid://bw7mhhjbryxnw" path="res://assets/pipe.png" id="1_mx8lo"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5fxo4"]
-size = Vector2(77, 34)
+[ext_resource type="Texture2D" uid="uid://cc4xbtttcuke5" path="res://assets/fence.png" id="2_40sv1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w3f6j"]
-size = Vector2(70, 514.5)
+size = Vector2(77, 562.281)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k3mli"]
 size = Vector2(16, 220)
@@ -16,28 +13,20 @@ size = Vector2(16, 220)
 script = ExtResource("1_irciu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_mx8lo")
+texture = ExtResource("2_40sv1")
 offset = Vector2(0, -390)
 flip_v = true
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(0, -127)
-shape = SubResource("RectangleShape2D_5fxo4")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -404.5)
+position = Vector2(-0.5, -390.719)
 shape = SubResource("RectangleShape2D_w3f6j")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
-texture = ExtResource("1_mx8lo")
+texture = ExtResource("2_40sv1")
 offset = Vector2(0, 390)
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
-position = Vector2(0, 128)
-shape = SubResource("RectangleShape2D_5fxo4")
-
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
-position = Vector2(0, 403.25)
+position = Vector2(0, 393.141)
 shape = SubResource("RectangleShape2D_w3f6j")
 
 [node name="ScoreArea" type="Area2D" parent="."]
