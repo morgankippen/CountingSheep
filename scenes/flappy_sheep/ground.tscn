@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://do3dlki2b0pmw"]
 
-[ext_resource type="Script" path="res://scripts/ground.gd" id="1_g4wyk"]
+[ext_resource type="Script" path="res://scripts/flappy_sheep/ground.gd" id="1_g4wyk"]
 [ext_resource type="Texture2D" uid="uid://dw31gijrl51dm" path="res://assets/cloud_ground.png" id="2_kv3op"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_memid"]

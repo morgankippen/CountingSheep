@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://thdi4aef380g"]
 
-[ext_resource type="Script" path="res://scripts/user_interface.gd" id="1_b60ps"]
+[ext_resource type="Script" path="res://scripts/flappy_sheep/user_interface.gd" id="1_p5vm3"]
 [ext_resource type="Texture2D" uid="uid://cuittxtw8o2os" path="res://assets/cloud1.png" id="2_oia3k"]
 [ext_resource type="Texture2D" uid="uid://cih08xhe0j23g" path="res://assets/restart1.png" id="3_h2xnr"]
 [ext_resource type="Texture2D" uid="uid://cip7pnobgcqmh" path="res://assets/restart2.png" id="4_aut44"]
@@ -19,7 +19,7 @@ frame_0/texture = ExtResource("2_oia3k")
 frame_0/duration = 0.5
 
 [node name="GUI" type="CanvasLayer"]
-script = ExtResource("1_b60ps")
+script = ExtResource("1_p5vm3")
 
 [node name="game_over" type="Control" parent="."]
 visible = false

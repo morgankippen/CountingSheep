@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://k4g2wgbyxsei"]
+
+[ext_resource type="PackedScene" uid="uid://cqrnixui4xc62" path="res://scenes/mainmenu.tscn" id="1_7cn4p"]
+[ext_resource type="PackedScene" uid="uid://dxmd5il1n6iox" path="res://scenes/flappy_sheep/main.tscn" id="1_qpgwg"]
+
+[node name="root" type="Node2D"]
+
+[node name="mainmenu" parent="." instance=ExtResource("1_7cn4p")]
+visible = false
+
+[node name="FlappySheep" parent="." instance=ExtResource("1_qpgwg")]

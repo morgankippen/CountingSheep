@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bflvjj2oei7w4"]
 
-[ext_resource type="Script" path="res://scripts/pipes.gd" id="1_irciu"]
+[ext_resource type="Script" path="res://scripts/flappy_sheep/pipes.gd" id="1_irciu"]
 [ext_resource type="Texture2D" uid="uid://cc4xbtttcuke5" path="res://assets/fence.png" id="2_40sv1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w3f6j"]

@@ -11,19 +11,22 @@ config_version=5
 [application]
 
 config/name="Counting Sheep"
-run/main_scene="res://scenes/main.tscn"
+run/main_scene="res://scenes/root.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-SignalBus="*res://scripts/signal_bus.gd"
+SignalBus="*res://scripts/SignalBus.gd"
 SoundManager="*res://scripts/SoundManager.gd"
 
 [display]
 
 window/size/viewport_width=750
 window/size/viewport_height=950
+window/size/resizable=false
+window/stretch/scale_mode="integer"
+window/handheld/orientation=1
 
 [importer_defaults]
 

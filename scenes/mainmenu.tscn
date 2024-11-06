@@ -1,0 +1,100 @@
+[gd_scene load_steps=15 format=3 uid="uid://cqrnixui4xc62"]
+
+[ext_resource type="FontFile" uid="uid://1whplwgcar6i" path="res://assets/m5x7.ttf" id="1_irvju"]
+[ext_resource type="Texture2D" uid="uid://bb7dajdfxw1e7" path="res://assets/menu_bg.png" id="1_wd3e4"]
+[ext_resource type="Texture2D" uid="uid://b7p1es7mbhaeg" path="res://assets/menu_sheep/tile000.png" id="2_iapan"]
+[ext_resource type="Texture2D" uid="uid://bl5552kjic8tl" path="res://assets/countingsheep1.png" id="3_0iwkv"]
+[ext_resource type="Texture2D" uid="uid://lgy5j5sqr86k" path="res://assets/menu_sheep/tile001.png" id="3_lncr8"]
+[ext_resource type="Texture2D" uid="uid://bnqvcwuamnx3b" path="res://assets/menu_sheep/tile002.png" id="4_od0kb"]
+[ext_resource type="Texture2D" uid="uid://dfemai1di0u51" path="res://assets/countingsheep2.png" id="4_p11eo"]
+[ext_resource type="Texture2D" uid="uid://de6rfxcrhd2gy" path="res://assets/sheepdreams1.png" id="5_4mluo"]
+[ext_resource type="Texture2D" uid="uid://bgjpvsd0l1xn4" path="res://assets/menu_sheep/tile003.png" id="5_nyuhy"]
+[ext_resource type="Texture2D" uid="uid://bd0vkxon7v2gm" path="res://assets/sheepdreams2.png" id="6_4wd85"]
+[ext_resource type="Texture2D" uid="uid://duuqp5mqvervs" path="res://assets/menu_sheep/tile004.png" id="6_7h0i0"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_s50l6"]
+frames = 2
+frame_0/texture = ExtResource("3_0iwkv")
+frame_0/duration = 1.8
+frame_1/texture = ExtResource("4_p11eo")
+frame_1/duration = 1.5
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_wmwbs"]
+frames = 2
+speed_scale = 1.1
+frame_0/texture = ExtResource("5_4mluo")
+frame_0/duration = 1.5
+frame_1/texture = ExtResource("6_4wd85")
+frame_1/duration = 2.0
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_2j6br"]
+frames = 5
+frame_0/texture = ExtResource("2_iapan")
+frame_1/texture = ExtResource("3_lncr8")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("4_od0kb")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("5_nyuhy")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("6_7h0i0")
+frame_4/duration = 1.0
+
+[node name="mainmenu" type="CanvasLayer"]
+
+[node name="menubg" type="TextureRect" parent="."]
+offset_right = 750.0
+offset_bottom = 952.0
+texture = ExtResource("1_wd3e4")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -201.0
+offset_top = 88.0
+offset_right = 201.0
+offset_bottom = 705.0
+grow_horizontal = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 12
+
+[node name="title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_irvju")
+theme_override_font_sizes/font_size = 96
+text = "EEPY SHEEPY!
+"
+horizontal_alignment = 1
+
+[node name="div" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_irvju")
+theme_override_font_sizes/font_size = 96
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_irvju")
+theme_override_font_sizes/font_size = 64
+text = "Game modes:
+"
+
+[node name="game1" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = SubResource("AnimatedTexture_s50l6")
+
+[node name="game2" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = SubResource("AnimatedTexture_wmwbs")
+
+[node name="eeping" type="TextureRect" parent="."]
+offset_left = 562.0
+offset_top = 792.0
+offset_right = 647.0
+offset_bottom = 856.0
+scale = Vector2(2, 2)
+texture = SubResource("AnimatedTexture_2j6br")
