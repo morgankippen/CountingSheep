@@ -40,11 +40,11 @@ func _input(event):
 	if game_over == false:
 		if event is InputEventMouseButton:
 			if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+				SoundManager.play_sound("jump")
 				if game_running == false:
 					start_game()
 				else:
 					if $Sheep.flying:
-						SoundManager.play_sound("jump")
 						$Sheep.flap()
 						check_top()
 
@@ -100,5 +100,4 @@ func _on_hit():
 	stop_game()
 
 func _on_restart():
-	print("restsrt?")
 	new_game()

@@ -1,11 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://k4g2wgbyxsei"]
+[gd_scene load_steps=4 format=3 uid="uid://k4g2wgbyxsei"]
 
 [ext_resource type="PackedScene" uid="uid://cqrnixui4xc62" path="res://scenes/mainmenu.tscn" id="1_7cn4p"]
-[ext_resource type="PackedScene" uid="uid://dxmd5il1n6iox" path="res://scenes/flappy_sheep/main.tscn" id="1_qpgwg"]
+[ext_resource type="Script" path="res://scripts/root.gd" id="1_21cdv"]
+[ext_resource type="AudioStream" uid="uid://b1vgfmjdlgdwh" path="res://assets/sounds/bg_music.wav" id="3_ndwmc"]
 
 [node name="root" type="Node2D"]
+script = ExtResource("1_21cdv")
 
 [node name="mainmenu" parent="." instance=ExtResource("1_7cn4p")]
-visible = false
 
-[node name="FlappySheep" parent="." instance=ExtResource("1_qpgwg")]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ndwmc")
+volume_db = -12.0
+autoplay = true

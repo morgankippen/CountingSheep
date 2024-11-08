@@ -78,6 +78,21 @@ size_flags_vertical = 8
 texture_normal = SubResource("AnimatedTexture_yeslh")
 texture_pressed = ExtResource("5_fx8d2")
 
+[node name="separator2" type="Label" parent="game_over/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="quit" type="RichTextLabel" parent="game_over/CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("4_s284k")
+theme_override_font_sizes/normal_font_size = 48
+bbcode_enabled = true
+text = "[center][url]Quit[/url][/center]
+
+"
+fit_content = true
+
 [node name="score_UI" type="VBoxContainer" parent="."]
 offset_left = -8.0
 offset_top = 18.0
@@ -111,3 +126,4 @@ text = "0"
 horizontal_alignment = 1
 
 [connection signal="pressed" from="game_over/CenterContainer/VBoxContainer/restart" to="." method="_on_restart_pressed"]
+[connection signal="meta_clicked" from="game_over/CenterContainer/VBoxContainer/quit" to="." method="_on_quit_meta_clicked"]

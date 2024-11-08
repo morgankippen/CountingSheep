@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dxmd5il1n6iox"]
+[gd_scene load_steps=7 format=3 uid="uid://dxmd5il1n6iox"]
 
 [ext_resource type="Script" path="res://scripts/flappy_sheep/main.gd" id="1_qsmv4"]
 [ext_resource type="PackedScene" uid="uid://bflvjj2oei7w4" path="res://scenes/flappy_sheep/pipes.tscn" id="2_f772c"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://kiwyfbck0lh0" path="res://assets/night_bg.png" id="3_pl68a"]
 [ext_resource type="PackedScene" uid="uid://do3dlki2b0pmw" path="res://scenes/flappy_sheep/ground.tscn" id="4_kng4b"]
 [ext_resource type="PackedScene" uid="uid://thdi4aef380g" path="res://scenes/flappy_sheep/user_interface.tscn" id="5_1socj"]
-[ext_resource type="AudioStream" uid="uid://b1vgfmjdlgdwh" path="res://assets/sounds/bg_music.wav" id="7_sl8ak"]
 
 [node name="FlappySheep" type="Node2D"]
 script = ExtResource("1_qsmv4")
@@ -27,10 +26,5 @@ position = Vector2(84, 389)
 wait_time = 1.5
 
 [node name="GUI" parent="." instance=ExtResource("5_1socj")]
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_sl8ak")
-volume_db = -12.0
-autoplay = true
 
 [connection signal="timeout" from="PipeTimer" to="." method="_on_pipe_timer_timeout"]

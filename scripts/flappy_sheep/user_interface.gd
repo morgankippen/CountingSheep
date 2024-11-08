@@ -14,4 +14,5 @@ func _on_restart_pressed():
 	$game_over.set_visible(false)
 	SignalBus.restart.emit()
 
-
+func _on_quit_meta_clicked(meta):
+	SignalBus.home.emit()
