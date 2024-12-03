@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpagwwrdjjt7l"]
+
+[ext_resource type="PackedScene" uid="uid://dvitl8hgnrgib" path="res://scenes/sheep_dreams/falling_item.tscn" id="1_2jdvk"]
+
+[sub_resource type="GDScript" id="GDScript_xsn3x"]
+script/source = "extends Node2D  # The parent node is a Node2D
+
+# Export the PackedScene of the falling sprite (Area2D)
+@export var sprite_scene : PackedScene  # The scene of the falling sprite (Area2D)
+
+func _ready():
+	$SpawnTimer.start()  # Start the timer to begin spawning
+		
+func _on_spawn_timer_timeout():
+	var sprite_instance = sprite_scene.instantiate()
+	var random_x = randf_range(0, 745)
+	sprite_instance.position = Vector2(random_x, 0)
+	add_child(sprite_instance)
+"
+
+[node name="Spawner" type="Node2D"]
+script = SubResource("GDScript_xsn3x")
+sprite_scene = ExtResource("1_2jdvk")
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 0.705
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

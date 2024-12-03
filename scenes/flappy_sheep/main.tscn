@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://kl38slt1elop" path="res://scenes/flappy_sheep/player.tscn" id="2_h64mq"]
 [ext_resource type="Texture2D" uid="uid://kiwyfbck0lh0" path="res://assets/night_bg.png" id="3_pl68a"]
 [ext_resource type="PackedScene" uid="uid://do3dlki2b0pmw" path="res://scenes/flappy_sheep/ground.tscn" id="4_kng4b"]
-[ext_resource type="PackedScene" uid="uid://thdi4aef380g" path="res://scenes/flappy_sheep/user_interface.tscn" id="5_1socj"]
+[ext_resource type="PackedScene" uid="uid://thdi4aef380g" path="res://scenes/user_interface.tscn" id="5_1socj"]
 
 [node name="FlappySheep" type="Node2D"]
 script = ExtResource("1_qsmv4")

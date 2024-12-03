@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cqrnixui4xc62"]
+[gd_scene load_steps=17 format=3 uid="uid://cqrnixui4xc62"]
 
 [ext_resource type="FontFile" uid="uid://1whplwgcar6i" path="res://assets/m5x7.ttf" id="1_irvju"]
 [ext_resource type="Script" path="res://scripts/mainmenu.gd" id="1_u0u8e"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bgjpvsd0l1xn4" path="res://assets/menu_sheep/tile003.png" id="5_nyuhy"]
 [ext_resource type="Texture2D" uid="uid://bd0vkxon7v2gm" path="res://assets/sheepdreams2.png" id="6_4wd85"]
 [ext_resource type="Texture2D" uid="uid://duuqp5mqvervs" path="res://assets/menu_sheep/tile004.png" id="6_7h0i0"]
+[ext_resource type="Texture2D" uid="uid://bsd10xcdq048e" path="res://assets/countingsheep_click.png" id="6_k104a"]
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_s50l6"]
 frames = 2
@@ -75,7 +76,7 @@ theme_override_fonts/font = ExtResource("1_irvju")
 theme_override_font_sizes/font_size = 96
 horizontal_alignment = 1
 
-[node name="Label3" type="Label" parent="VBoxContainer"]
+[node name="pick a game" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_irvju")
 theme_override_font_sizes/font_size = 64
@@ -87,6 +88,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture_normal = SubResource("AnimatedTexture_s50l6")
+texture_pressed = ExtResource("6_k104a")
 
 [node name="game2" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
@@ -103,3 +105,4 @@ scale = Vector2(2, 2)
 texture = SubResource("AnimatedTexture_2j6br")
 
 [connection signal="pressed" from="VBoxContainer/game1" to="." method="_on_game_1_pressed"]
+[connection signal="pressed" from="VBoxContainer/game2" to="." method="_on_game_2_pressed"]
