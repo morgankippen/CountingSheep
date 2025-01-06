@@ -1,5 +1,7 @@
 # Sleepy Sheepy
-A series of sheep-themed minigames made in Godot
+A series of sheep-themed minigames made in Godot/
+
+Though unfinished, it is available to play [here on itch.io](https://morgan404.itch.io/sheepminigames)
 
 -----
 
@@ -8,7 +10,7 @@ Inspired by popular mobile game Flappy Bird and the concept of counting sheep to
 Control the sheep character by clicking, and try not to hit into any fences.
 
  ### Minigame 2: Sheep Dreams
- Coming Soon!
+Control the sheep with your mouse, collecting white clouds for points; but make sure to avoid the storm clouds, otherwise it's game over.
 
 -----
 
