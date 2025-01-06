@@ -1,28 +1,42 @@
-[gd_scene load_steps=3 format=3 uid="uid://bpagwwrdjjt7l"]
+[gd_scene load_steps=4 format=3 uid="uid://bpagwwrdjjt7l"]
 
 [ext_resource type="PackedScene" uid="uid://dvitl8hgnrgib" path="res://scenes/sheep_dreams/falling_item.tscn" id="1_2jdvk"]
+[ext_resource type="PackedScene" uid="uid://d2jcbibr5vucv" path="res://scenes/sheep_dreams/falling_bad.tscn" id="2_24qg6"]
 
 [sub_resource type="GDScript" id="GDScript_xsn3x"]
 script/source = "extends Node2D  # The parent node is a Node2D
 
-# Export the PackedScene of the falling sprite (Area2D)
-@export var sprite_scene : PackedScene  # The scene of the falling sprite (Area2D)
+@export var sprite_scene : PackedScene  
+@export var evil_scene: PackedScene
 
 func _ready():
-	$SpawnTimer.start()  # Start the timer to begin spawning
+	$SpawnTimer.start()
+	SignalBus.hit.connect(_clear)
 		
 func _on_spawn_timer_timeout():
-	var sprite_instance = sprite_scene.instantiate()
+	var random_chance = randf_range(0, 1)
+	var item_instance : Area2D
+	if random_chance < 0.8:
+		item_instance = sprite_scene.instantiate()
+	else: 
+		item_instance = evil_scene.instantiate()
 	var random_x = randf_range(0, 745)
-	sprite_instance.position = Vector2(random_x, 0)
-	add_child(sprite_instance)
+	item_instance.position = Vector2(random_x, 0)
+	add_child(item_instance)
+
+func _clear():
+	$SpawnTimer.stop()
+	for child in get_children():
+		if child != $SpawnTimer:
+			child.queue_free()
 "
 
 [node name="Spawner" type="Node2D"]
 script = SubResource("GDScript_xsn3x")
 sprite_scene = ExtResource("1_2jdvk")
+evil_scene = ExtResource("2_24qg6")
 
 [node name="SpawnTimer" type="Timer" parent="."]
-wait_time = 0.705
+wait_time = 0.718
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

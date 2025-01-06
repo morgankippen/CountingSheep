@@ -1,19 +1,18 @@
 [gd_scene load_steps=4 format=3 uid="uid://dsnckcgvkww2i"]
 
 [ext_resource type="Script" path="res://scripts/sheep_dreams/player.gd" id="1_l2bgs"]
-[ext_resource type="Texture2D" uid="uid://c3pxeh3br7em" path="res://assets/sheep.png" id="1_sdmrc"]
+[ext_resource type="Texture2D" uid="uid://dx85jewlqnxda" path="res://assets/sheep_sprite.png" id="2_0ekcy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wjcvt"]
-radius = 32.0
+radius = 36.0
 height = 82.0
 
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_l2bgs")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_sdmrc")
+texture = ExtResource("2_0ekcy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(4, 1)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_wjcvt")

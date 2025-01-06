@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2jcbibr5vucv"]
+
+[ext_resource type="Script" path="res://scripts/falling_bad.gd" id="1_2seej"]
+[ext_resource type="Texture2D" uid="uid://dl2bkl3yq1fng" path="res://assets/rain_cloud.png" id="2_2f02t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_atsnn"]
+size = Vector2(46.5, 32)
+
+[node name="item" type="Area2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_2seej")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_2f02t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.25, -0.5)
+shape = SubResource("RectangleShape2D_atsnn")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

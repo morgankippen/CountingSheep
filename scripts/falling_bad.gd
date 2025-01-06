@@ -9,6 +9,5 @@ func _process(delta):
 		queue_free()
 
 func _on_body_entered(body):
-	SoundManager.play_sound("click")
-	SignalBus.scored.emit()
+	SignalBus.hit.emit()
 	queue_free()
